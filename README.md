@@ -18,4 +18,4 @@ Checklist scripts built for select aircraft, designed for use with the [XCheckli
    * After all: If you, as Pilot-in-command, want to confirm gear as down when it's actually not, who am I to dictate otherwise ;)
 
 ## List: Checklist = Aircraft
-* In Development: [EMB110-V3](https://github.com/Omar42Phillips/op_xchecklists/blob/main/EMB110-V3/clist.txt) = [Embraer 110 Bandeirante by DreamFoil Creations](https://store.x-plane.org/Embraer-110--Bandeirante-XP11_p_850.html)
+* [EMB110-V3](https://github.com/Omar42Phillips/op_xchecklists/blob/main/EMB110-V3/clist.txt) = [Embraer 110 Bandeirante by DreamFoil Creations](https://store.x-plane.org/Embraer-110--Bandeirante-XP11_p_850.html)
