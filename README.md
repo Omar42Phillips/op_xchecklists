@@ -15,3 +15,6 @@ Checklist scripts built for select aircraft, designed for use with the [XCheckli
 * I highly recommend that you install the [DataRefTool](https://github.com/leecbaker/datareftool) plugin to view the status of the relevant "datarefs".
 * That said, most checklist items, even those that I've managed to automate, can be manually checked-off.
    * If you want to confirm gear as down when it's actually not, who am I to dictate otherwise ;)
+
+## List: Checklist = Aircraft
+* [EMB110-V3](https://github.com/Omar42Phillips/op_xchecklists/blob/main/EMB110-V3/clist.txt) = [Embraer 110 Bandeirante by DreamFoil Creations](https://store.x-plane.org/Embraer-110--Bandeirante-XP11_p_850.html)
