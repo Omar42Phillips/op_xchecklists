@@ -1,13 +1,11 @@
-sw_checklist:EMBRAER 110 - NORMAL PROCEDURES
-sw_itemvoid: Aircraft - Embraer 110 by DreamFoil Creations
-sw_itemvoic: Aircraft - https://store.x-plane.org/Embraer-110--Bandeirante-XP11_p_850.html
-sw_itemvoid: Checklist Author - Omar Phillips
+sw_checklist: Embraer 110
+sw_itemvoid: Aircraft by DreamFoil Creations (checklist made by Omar Phillips)
+sw_itemvoid: Aircraft - https://store.x-plane.org/Embraer-110--Bandeirante-XP11_p_850.html
 sw_itemvoid: Checklist Source - https://github.com/Omar42Phillips/op_xchecklists/EMB110-V3/clist.txt
-sw_itemvoid: WARNING - This isn not ready for use yet. I'll create an actual release when I have an MVP working.
-sw_continue: ORIGINATION - NORMAL PROCEDURES
+sw_continue:Origination
 
-sw_checklist:ORIGINATION - NORMAL PROCEDURES
-sw_item:-|Origination Complete
+sw_checklist:Origination
+sw_item:-|Origination Procedures
 sw_item:Wheel chocks and tail support|Deployed:(EMB110/Equip/Calco:0)&&(EMB110/Equip/Suporte:0)
 sw_item:Safety cones|Deployed:EMB110/Equip/Cones:0
 sw_item:Pitot and engine caps|Removed:(EMB110/Equip/Pitot1:1)&&(EMB110/Equip/Pitot2:1)&&(EMB110/Equip/Capa1:1)&&(EMB110/Equip/Capa2:1)
@@ -18,11 +16,11 @@ sw_item:Panels lights|As required:sim/cockpit/electrical/cockpit_lights:1
 sw_iteminfo:Navigation Lights|On:EMB110/light/nav_lights:1
 sw_item:Parking brake|Set:EMB110/controls/parking_brake_ratio:1
 sw_item:Passenger Cabin lights|As required:(sim/cockpit2/switches/generic_lights_switch[32]:0.5)||(sim/cockpit2/switches/generic_lights_switch[32]:1)
-sw_item:Emergency lights|Armed
+sw_item:Emergency lights|Armed:EMB110/switch/emergency:1
 sw_item:Pitot Heat|As required:EMB110/light/pitot_heat_on:1
 sw_item:Air Condition|As required:(EMB110/light/arcond_ground:1)||(EMB110/light/arcond_ground:2)
-sw_item:Auto feather|Checked;Off
-sw_item:Propeller Sync|Checked;Off
+sw_item:Auto feather|Checked;Off:EMB110/switches/auto_feather_mode:0
+sw_item:Propeller Sync|Checked;Off:EMB110/switches/prop_sync_on:0
 sw_remark:Origination Complete
 sw_continue: Pre-Flight Preparation
 
@@ -42,8 +40,8 @@ sw_item:Barometer|Set
 sw_item:Flight Plan|Set
 sw_item:Heading Indicator|Set
 sw_item:Fuel Quantity|Check
-sw_item:No smoking sign|On
-sw_item:Seatbelt sign|On
+sw_item:No smoking sign|On:sim/cockpit/switches/no_smoking:1
+sw_item:Seatbelt sign|On:sim/cockpit/switches/fasten_seat_belts:1
 sw_item:Departure Briefing|Complete
 sw_remark:Pre-Flight Preparation Complete
 sw_continue: BEFORE START
@@ -94,7 +92,7 @@ sw_item:Condition levers|Hi Idle;As required:(sim/cockpit2/engine/actuators/mixt
 sw_continue:AFTER START
 
 sw_checklist:AFTER START
-sw_remark:Engine Start|Complete
+sw_remark:Engine Start Complete
 sw_item:Battery master|Battery:EMB110/switch/battery:1
 sw_item:Generators|On:(EMB110/light/generator_on_0:1)&&(EMB110/light/generator_on_1:1)
 sw_item:Voltammeters|Checked:(EMB110/electrical/needle_volt_0:>=28)&&(EMB110/electrical/needle_volt_1:>=28)
@@ -119,10 +117,11 @@ sw_item:Fuel pumps|Checked;Set:(EMB110/fuel/fuel_pump_on[2]:1)&&(EMB110/fuel/fue
 sw_item:Autopilot|Tested,Off:(EMB110/switch/autopilot_on:1)&&(EMB110/switches/autopilot_test:1)&&(sim/cockpit/autopilot/autopilot_mode:1)
 sw_itemvoid:Electric trim|Tested
 sw_item:Power Lever|Taxi:sim/multiplayer/controls/engine_throttle_request:0
-sw_item:Condition levers|Low Idle
+sw_item:Condition levers|Low Idle:(sim/cockpit2/engine/actuators/mixture_ratio[0]:0.5)&&(sim/cockpit2/engine/actuators/mixture_ratio[1]:0.5)
 sw_item:Trim tabs|Checked
 sw_item:Radios|Set for Taxi
 sw_remark:Ready to Taxi
+sw_continue:TAXI
 
 sw_checklist:TAXI
 sw_item:-|Cleared Taxi
@@ -131,8 +130,8 @@ sw_item:Taxi Light|As required:sim/cockpit/electrical/taxi_light_on:1
 sw_item:Parking brake|Released:EMB110/controls/parking_brake_ratio:<0.9
 sw_item:Brakes|Tested:sim/cockpit2/controls/parking_brake_ratio:0.1:0.3
 sw_item:Propeller Levers|Maximum:(sim/cockpit2/engine/actuators/prop_rotation_speed_rad_sec_all:>230.0)
-sw_item:Fuel condition levers;As required|-
-sw_continue:BEFORE TAKE-OFF
+sw_item:Fuel condition levers;As required|-:(sim/cockpit2/engine/actuators/mixture_ratio[0]:0.5|1)&&(sim/cockpit2/engine/actuators/mixture_ratio[1]:0.5|1)
+sw_continue:ENGINE RUN-UP
 
 sw_checklist:ENGINE RUN-UP
 sw_item:-|Cleared Engine Runup
@@ -147,17 +146,17 @@ sw_continue:BEFORE TAKE-OFF
 
 sw_checklist:BEFORE TAKE-OFF
 sw_item:-|Prepare for Departure
-sw_item:Utility lights|On (at night)
+sw_item:Utility lights|On (at night):(sim/graphics/scenery/sun_pitch_degrees:>1.0)||((sim/graphics/scenery/sun_pitch_degrees:<1.0)&&(sim/cockpit2/electrical/instrument_brightness_ratio_manual[5]:1)&&(sim/cockpit/electrical/cockpit_lights:1))
 sw_item:Inertial separation|As required:((EMB110/switch/inertial_separator[0]:0)||(EMB110/switch/inertial_separator[0]:1))&&((EMB110/switch/inertial_separator[1]:0)||(EMB110/switch/inertial_separator[1]:1))
 sw_item:Flaps|25%:(sim/cockpit2/controls/flap_ratio:0.25)&&(sim/cockpit2/controls/flap_handle_deploy_ratio:0.25)
-sw_item:Trim tabs|Set
+sw_item:Trim tabs|Set:sim/cockpit2/controls/elevator_trim:-0.08|0.08
 sw_item:Take-Off Data|Checked
 sw_item:Take-Off briefing|Complete
 sw_item:Annunciator panel|Checked
-sw_item:Auto feather|Checked;Set
+sw_item:Auto feather|Checked;Set:Auto feather|Checked;Off:EMB110/switches/auto_feather_mode:1
 sw_item:Flight instruments and radios|Set for Departure
-sw_item:Autopilot|Set for Departure
-sw_item:Radar|As Required
+sw_item:Autopilot|Set for Departure:(sim/cockpit/switches/yaw_damper_on:1)&&(sim/cockpit2/autopilot/heading_mode:1)
+sw_item:Radar|On,As Required:EMB110/light/radar_wx:3
 sw_continue:TAKE-OFF
 
 sw_checklist:Take-Off
@@ -171,17 +170,17 @@ sw_iteminfo:Parking brake|RELEASED:EMB110/controls/parking_brake_ratio:0
 sw_continue:AFTER TAKE-OFF/CLIMB
 
 sw_checklist:AFTER TAKE-OFF
-sw_iteminfo:-|Positive Rate:sim/cockpit2/gauges/indicators/vvi_fpm_pilot:>500
+sw_item:-|Positive Rate:(sim/cockpit2/gauges/indicators/vvi_fpm_pilot:>500)&&((sim/cockpit2/engine/actuators/prop_rotation_speed_rad_sec_all:>230.0))&&(sim/cockpit2/engine/actuators/throttle_ratio_all:>0.8)&&((sim/cockpit2/engine/actuators/mixture_ratio[0]:1.0)&&(sim/cockpit2/engine/actuators/mixture_ratio[1]:1.0))
 sw_iteminfo:Landing Gear|Up:(EMB110/switches/gear_handle_status:0)
 sw_iteminfo:     -|Confirmed:(sim/flightmodel/movingparts/gear1def:0)&&(sim/flightmodel/movingparts/gear2def:0)&&(sim/flightmodel/movingparts/gear3def:0)
-sw_iteminfo:-|Climb Speed:sim/flightmodel/position/indicated_airspeed:>=127.0
+sw_item:-|Climb Speed:sim/flightmodel/position/indicated_airspeed:>=127.0
 sw_iteminfo:Flaps|Zero:(sim/cockpit2/controls/flap_ratio:0.0)&&(sim/cockpit2/controls/flap_handle_deploy_ratio:0.0)
 sw_item:Propeller levers|91% Nh:(sim/cockpit2/engine/actuators/prop_rotation_speed_rad_sec_all:>205.0)&&(sim/cockpit2/engine/actuators/prop_rotation_speed_rad_sec_all:<210.0)
 sw_item:Power levers|Set for climb
 sw_item:Inertial separation|As required:(EMB110/switch/inertial_separator[0]:0)&&((EMB110/switch/inertial_separator[1]:0)
 sw_item:Air conditioning|Set:(EMB110/light/arcond_ground:1)||(EMB110/light/arcond_ground:2)
-sw_item:Auto feather|Off
-sw_item:Propeller Sync|On
+sw_item:Auto feather|Off:EMB110/switches/auto_feather_mode:0
+sw_item:Propeller Sync|On:EMB110/light/prop_sync_on:1
 sw_item:Hydraulic booster pump|OFF:sim/cockpit2/switches/electric_hydraulic_pump_on:0
 sw_item:Engine instruments|Checked
 sw_item:Autopilot|As Required
@@ -189,56 +188,56 @@ sw_remark:After Takeoff Checklist Complete
 sw_continue:Climb Cross-Checks
 
 sw_checklist:Climb Cross-Checks
-sw_item:Cabin signs|As required
 sw_item:Landing,taxi, and utility lights|As required
 sw_itemvoid:Oxygen valve|As required
 sw_item:Cabin signs|As required
-sw_item:Landing, taxi, and utility lights|Off:(EMB110/light/landing_lights:0)&&(sim/cockpit/electrical/taxi_light_on:0)
 sw_item:Altimeter|Checked;Set
 sw_continue:CRUISE
 
 sw_checklist:CRUISE
 sw_item:Px Heat|As required:EMB110/light/px_heat:1
-sw_item:Propeller levers|83%Nh;Observe Maximum Torque:(sim/cockpit2/engine/actuators/prop_rotation_speed_rad_sec_all:>190.0)&&(sim/cockpit2/engine/actuators/prop_rotation_speed_rad_sec_all:<210.0)
+sw_item:Propeller levers|83%Nh;Observe Maximum Torque:(sim/cockpit2/engine/actuators/prop_rotation_speed_rad_sec_all:>190.0)&&(sim/cockpit2/engine/actuators/prop_rotation_speed_rad_sec_all:<200.0)
 sw_item:Cabin signs|As required
 sw_item:Autopilot|As required
 sw_item:Power levers|Set for Cruise
 sw_remark:Cruise Checklist Complete
+sw_continue:Descent Cross-Checks
 
 sw_checklist:Descent Cross-Checks
-sw_show:sim/flightmodel/misc/h_ind:<=10000.0
-sw_item:Cabin Signs|On
+sw_item:-|Begin Descent
 sw_item:Landing, taxi, and utility lights|On:(EMB110/light/landing_lights:1)&&(sim/cockpit/electrical/taxi_light_on:1)
-sw_item:Altimeter|Set;Cross-check
-sw_item:Arrival data|Set
+sw_item:Altimeter
+sw_item:Arrival data
 sw_continue:INITIAL APPROACH
 
 sw_checklist:INITIAL APPROACH
 sw_item:Descent procedures|Complete
-sw_item:Cabin signs|On
-sw_item:Utility lights|On (at night)
-sw_item:Oxygen valve|Closed
-sw_item:Ignition and Px heat|As required
-sw_item:Landing lights|On
-sw_item:Landing data|Checked
-sw_item:Approach briefing | Complete
+sw_item:Cabin signs|On:(sim/cockpit/switches/no_smoking:1)&&(sim/cockpit/switches/fasten_seat_belts:1)
+sw_item:Landing, taxi, and utility lights|On:(EMB110/light/landing_lights:1)&&(sim/cockpit/electrical/taxi_light_on:1)&&((sim/graphics/scenery/sun_pitch_degrees:>1.0)||((sim/graphics/scenery/sun_pitch_degrees:<1.0)&&(sim/cockpit2/electrical/instrument_brightness_ratio_manual[5]:1)&&(sim/cockpit/electrical/cockpit_lights:1)))
+sw_itemvoid:Oxygen valve|Closed
+sw_item:Ignition and Px heat|As required:EMB110/light/px_heat:1
+sw_item:Landing data
+sw_item:Approach briefing|Complete
 sw_remark:Approach checklist complete
+sw_continue:BEFORE LANDING
 
 sw_checklist:BEFORE LANDING
 sw_item:Altimeters|Set;Cross-check
 sw_item:Flaps|25%:(sim/cockpit2/controls/flap_ratio:0.25)&&(sim/cockpit2/controls/flap_handle_deploy_ratio:0.25)
-sw_item:Propeller synchro|Off
-sw_item:Auto feather|Set
+sw_item:Propeller synchro|Off::EMB110/light/prop_sync_on:0
+sw_item:Auto feather|Set:EMB110/switches/auto_feather_mode:1
 sw_item:Propeller levers|91%Nh:(sim/cockpit2/engine/actuators/prop_rotation_speed_rad_sec_all:>205.0)&&(sim/cockpit2/engine/actuators/prop_rotation_speed_rad_sec_all:<210.0)
-sw_item:Hydraulic booster pump|On
+sw_item:Hydraulic booster pump|On:sim/cockpit2/switches/electric_hydraulic_pump_on:1
 sw_item:Hydraulic pressures|Checked
 sw_iteminfo:Landing Gear|Down:(EMB110/switches/gear_handle_status:1)
 sw_iteminfo:     -|3 Green:(sim/flightmodel/movingparts/gear1def:1)&&(sim/flightmodel/movingparts/gear2def:1)&&(sim/flightmodel/movingparts/gear3def:1)
 sw_item:Nose wheel steering|On:EMB110/button/nosewheel_on:1
 sw_item:Radar|As Required:EMB110/light/radar_wx:1
+sw_remark:Landing checklist complete
+sw_continue:FINAL APPROACH
 
 sw_checklist:FINAL APPROACH
-sw_item:Flaps|100%
+sw_item:Flaps|100%:(sim/cockpit2/controls/flap_ratio:1.00)&&(sim/cockpit2/controls/flap_handle_deploy_ratio:1.00)
 sw_item:Inertial separation|AS REQUIRED
 sw_item:Air conditioning|VENT/OFF
 sw_itemvoid:_____________________________________
